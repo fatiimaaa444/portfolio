@@ -1,55 +1,39 @@
 import { useState } from "react";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const links = [
-    { id: "home", label: "Home" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" },
-  ];
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-[#140709] fixed w-full z-50 px-6 py-4 shadow-md">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 className="text-2xl text-white font-semibold">
-          Fatima<span className="text-[#a7376f]">.</span>
+    <nav className="fixed w-full bg-[#140709] z-50 shadow">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 className="text-[#FFECEA] text-xl">
+          Fatima<span className="text-[#6C131F]">.</span>
         </h1>
 
-        <ul className="hidden md:flex gap-8 text-gray-200">
-          {links.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                className="hover:text-[#9f5b7d] hover:underline underline-offset-7 transition-colors duration-300"
-              >
-                {link.label}
+        <ul className="hidden md:flex gap-8 text-gray-300">
+          {["home", "skills", "projects", "contact"].map((item) => (
+            <li key={item}>
+              <a href={`#${item}`} className="hover:text-[#A14B58]">
+                {item}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Hamburger Button */}
         <button
-          className="md:hidden text-gray-200 text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-gray-300"
+          onClick={() => setOpen(!open)}
         >
-          {menuOpen ? "✕" : "☰"}
+          ☰
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <ul className="md:hidden bg-[#140709] flex flex-col gap-4 mt-4 p-4 rounded shadow-md">
-          {links.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                className="hover:underline transition-colors duration-300 text-gray-200"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
+      {open && (
+        <ul className="md:hidden bg-[#140709] px-6 pb-4 text-gray-300">
+          {["home", "skills", "projects", "contact"].map((item) => (
+            <li key={item} className="py-2">
+              <a href={`#${item}`} onClick={() => setOpen(false)}>
+                {item}
               </a>
             </li>
           ))}
