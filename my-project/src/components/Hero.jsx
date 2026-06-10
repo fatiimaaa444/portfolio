@@ -14,7 +14,7 @@ const Hero = () => {
         items-center gap-12 w-full"
       >
         {/* LEFT TEXT */}
-        <div className="w-full">
+        <div className="w-full ml-1 mt-10">
           <Animate>
             <p className="text-gray-400 mb-2">
               Hi, I'm Fatima
@@ -30,8 +30,9 @@ const Hero = () => {
 
           <Animate delay={0.4}>
             <p className="text-gray-400 max-w-xl mt-6">
-              I build clean, responsive and animated web applications
-              with modern technologies.
+              I build complete web apps that are fast, easy to use, and look
+              great. I focus on accessibility and performance, turning ideas
+              from a blank page into ready-to-use products.
             </p>
           </Animate>
 
@@ -51,10 +52,10 @@ const Hero = () => {
         {/* RIGHT SPLINE */}
         <Animate delay={0.8}>
           <div className="w-full flex justify-center">
-            <div className="w-full h-[360px] md:h-[520px]">
+            <div className="w-full h-120 md:h-120">
               <Spline
                 scene="https://prod.spline.design/YhbBoIqoqgdpD3D4/scene.splinecode"
-                className="w-full h-full"
+                className="w-full full"
               />
             </div>
           </div>
